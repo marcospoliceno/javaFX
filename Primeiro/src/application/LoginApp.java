@@ -1,10 +1,11 @@
 package application;
 
-import javax.swing.JOptionPane;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -81,11 +82,15 @@ public class LoginApp extends Application {
 
 	private void logar() {
 		if ("123456".equals(txSenha.getText()) && "alunos".equals(txLogin.getText())) {
-			JOptionPane.showMessageDialog(null, "Usuario valido", "Login", JOptionPane.INFORMATION_MESSAGE);
-			;
+			// JOptionPane.showMessageDialog(null, "Usuario valido", "Login",
+			// JOptionPane.INFORMATION_MESSAGE);
+			Alert alert = new Alert(AlertType.INFORMATION, "Login realizado", ButtonType.CLOSE);
+			alert.show();
 		} else {
-			JOptionPane.showMessageDialog(null, "Usuario invalido", "Login", JOptionPane.ERROR_MESSAGE);
-
+			// JOptionPane.showMessageDialog(null, "Usuario invalido", "Login",
+			// JOptionPane.ERROR_MESSAGE);
+			Alert alert = new Alert(AlertType.ERROR, "Usurio ou senha inválido", ButtonType.CLOSE);
+			alert.show();
 		}
 	}
 }
